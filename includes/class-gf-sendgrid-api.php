@@ -259,8 +259,7 @@ class GF_SendGrid_API {
 			],
 		);
 
-		echo "<pre>";
-		var_dump($args);
+
 
 		// Execute API request.
 		$response = wp_remote_request( $request_url, $args );
@@ -268,11 +267,13 @@ class GF_SendGrid_API {
 		$response_code = wp_remote_retrieve_response_code($response);
         $response_body = wp_remote_retrieve_body($response);
 
-		echo "Request URL: $request_url\n";
-		echo "Response: $response_code\n";
-		echo "Body: $response_body";
+		// echo "<pre>";
+		// var_dump($args);
+		// echo "Request URL: $request_url\n";
+		// echo "Response: $response_code\n";
+		// echo "Body: $response_body";
+		// die;
 
-die;
 		// If API request returns a WordPress error, throw an exception.
 		if ( is_wp_error( $response ) ) {
 			throw new Exception( 'Request failed. '. $response->get_error_message() );
